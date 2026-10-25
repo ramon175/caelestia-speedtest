@@ -1,0 +1,30 @@
+diff --git a/modules/dashboard/Content.qml b/modules/dashboard/Content.qml
+index a237d0df..34f7cca9 100644
+--- a/modules/dashboard/Content.qml
++++ b/modules/dashboard/Content.qml
+@@ -36,6 +36,12 @@ Item {
+                 text: Tr.tr("Performance"),
+                 enabled: Config.dashboard.showPerformance
+             },
++            {
++                component: speedTestComponent,
++                iconName: "network_check",
++                text: Tr.tr("Speed test"),
++                enabled: true // No config key: the C++ config plugin would need a rebuild
++            },
+             {
+                 component: weatherComponent,
+                 iconName: "cloud",
+@@ -176,6 +182,12 @@ Item {
+                 Performance {}
+             }
+ 
++            Component {
++                id: speedTestComponent
++
++                SpeedTestTab {}
++            }
++
+             Component {
+                 id: weatherComponent
+ 
